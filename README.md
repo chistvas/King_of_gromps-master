@@ -9,7 +9,7 @@ While the site is under development, to see it you need to run it on a local mac
 For this:
 1. Download the repository
 2. Install the dependencies specified in the file requirements.txt
-3. Run file run.py
+3. Run file app.py
 4. Check site in your browser localhost:5000
 
 ## Contributing
