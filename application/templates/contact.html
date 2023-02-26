@@ -1,0 +1,26 @@
+{% extends "layout_no_scroll.html" %}
+{% block content %}
+<form action="{{ url_for('search_engine.search_result') }}" method = "POST">
+    <div class="form">
+        <div class="input-container ic1">
+          <input id="player1" class="input" type="text" placeholder=" " name="player1"/>
+          <div class="cut"></div>
+          <label for="player1" class="placeholder">Player 1</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="player2" class="input" type="text" placeholder=" " name="player2"/>
+          <div class="cut"></div>
+          <label for="player2" class="placeholder">Player 2</label>
+        </div>
+        <div class="input-container ic2">
+            <select class="input" id="region" autocomplete="off" name="region">
+                <option selected disables>Choose server</option>
+                <option value="euw1">EUW</option>
+                <option value="na1">NA</option>
+                <option value="ru">RU</option>
+            </select><br>
+        </div>
+        <button type="text" class="submit">Search</button>
+    </div>
+</form>
+{% endblock content %}

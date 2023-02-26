@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="result_table">
+  <tr>
+      <th colspan="5" style="font-size: 30px;">Recent Games</th>
+  </tr>
+  {% for game in data %}
+    <tr>
+      <td>
+        <img src="static/images/champion/{{ data[game]['championName'] }}.png" class="img_champ">
+      </td>
+      <td>
+        {{ data[game]["win"] }}
+      </td>
+      <td>
+        {{ data[game]["kda"] }}
+      </td>
+      <td>
+        <div class="item_box">
+          {% for item in data[game]["items"] %}
+            <img src="static/images/item/{{ item }}.png" class="img_item">
+          {% endfor %}
+        </div>
+      </td>
+      <td>
+        <div class="champion_summoner_container">
+          <div class="champion_summoner_column">
+            <ul class="participant">
+              {% for participant in data[game]["left_side_prt"] %}
+                <li class="participant">
+                  <div style="position: relative;">
+                    <a class="img_item" style="vertical-align: sub" href="https://www.leagueofgraphs.com/summoner/{{region}}/{{participant}}" target="_blank">
+                      <img src="static/images/champion/{{data[game]['left_side_prt'][participant]}}.png" class="img_item">
+                    </a>
+                  </div>
+                  <div>
+                    <a class="img_item" style="vertical-align: sub" href="https://www.leagueofgraphs.com/summoner/{{region}}/{{participant}}" target="_blank"> {{ participant }} </a>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="champion_summoner_column">
+            <ul class="participant">
+              {% for participant in data[game]["right_side_prt"] %}
+              <li class="participant">
+                <div style="position: relative;">
+                  <a class="img_item" style="vertical-align: sub" href="https://www.leagueofgraphs.com/summoner/{{region}}/{{participant}}" target="_blank">
+                    <img src="static/images/champion/{{data[game]['right_side_prt'][participant]}}.png" class="img_item">
+                  </a>
+                </div>
+                <div>
+                  <a class="img_item" style="vertical-align: sub" href="https://www.leagueofgraphs.com/summoner/{{region}}/{{participant}}" target="_blank"> {{ participant }} </a>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock content %}

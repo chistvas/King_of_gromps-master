@@ -1,0 +1,46 @@
+# @app.route("/register", methods={'GET', 'POST'})
+# def register():
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         flash(f'Account created for {form.username.data}!', 'success')
+#         return redirect(url_for('search'))
+#     return render_template('register.html', title='Register', form=form)
+
+
+# @app.route("/login", methods={'GET', 'POST'})
+# def login():
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         if form.email.data == 'admin@gromps.com' and form.password.data == 'password':
+#             flash('You have been logged in as admin!', 'success')
+#             return redirect(url_for('search'))
+#         else:
+#             flash('Invalid username or password', 'danger')
+#     return render_template('login.html', title='Login', form=form)
+
+# @search_engine.route("/pro_search")
+# def pro_search():
+#     return render_template('prosearch.html', title='Search Pro')
+# 
+# @search_engine.route("/pro_search_result",  methods=['POST', 'GET'])
+# def pro_search_result():
+#     if request.method == 'GET':
+#         return f"The URL /pro_search_result is accessed directly. Try going to '/pro_search' to submit form"
+#     if request.method == "POST":
+#         player1 = request.form.get("player1")
+# 
+#         region = request.form.get("region")
+#         all_info = {}
+#         for match in two_players_search(player1, player2, region):
+#             for match_id in match:
+#                 all_info[match_id] = collapsed_table_info(player1, region, match_id)
+#         return render_template(
+#             'pro_search_result.html',
+#             title='Pro search result',
+#             player1=player1,
+#             player2=player2, 
+#             region=region,
+#             data=all_info
+#             )
+# 
+#     return render_template('pro_search.html')

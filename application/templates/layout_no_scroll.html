@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static\main.css">
+  <script defer src="{{url_for('static', filename='popup.js')}}"></script>
+
+  {% if title %}
+    <title>Test site - {{ title }}</title>
+  {% else %}
+    <title>Test site</title>
+  {% endif %}
+
+</head>
+<body scroll="no" style="overflow: hidden" onload="document.body.style.opacity='1'">
+  <header>
+    {% if title == "Live Game" or title == "Live Game Result" %}
+      <a class="cta" href="{{url_for('search_engine.search')}}">Two players</a>
+    {% else %}
+      <a class="cta" href="{{url_for('search_engine.live_game')}}">Live</a>
+    {% endif %}
+    <h1 class="nav_center">King of Gromps</h1>
+    <a class="cta" id="contact" href="#">Contact Me!</a>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+  <!-- Model section -->
+  <div class="bg-modal">
+    <div class="modal-contents">
+      <div class="close">+</div>
+      <form action="{{ url_for('contact_me.contact') }}" method = "POST">
+          <textarea class="input_modal" rows="5" cols="60" name="description" required="required">
+            Enter details here...
+          </textarea>
+          <input class="cta_modal" type = "submit" value = "Submit">
+      </form>
+    </div>
+</div>
+</body>
+</html>
